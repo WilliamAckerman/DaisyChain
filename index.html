@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ferret - A Mindless Add/Remove App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Ferret</h1>
+        <h3>A Mindless Add/Remove App</h3>
+        <div id="creature"></div>
+
+        <h4>Add a Segment</h4>
+        <form id="addForm">
+            <input id="segment" required />
+            <br />
+
+            <input type="radio" id="addToStart" name="whereToAdd" checked> Add to Start
+            <br />
+            <input type="radio" id="addToEnd" name="whereToAdd"> Add to End
+            <br />
+            <button id="addButton" type="submit">Add Item</button>
+        </form>
+
+        <h4>Remove a Segment</h4>
+        <form id="removeForm">
+            <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
+            <label for="removeFromStart">Remove From Start</label>
+            <br />
+            <input type="radio" id="removeFromEnd" name="whereToRemove">
+            <label for="removeFromEnd">Remove From End</label>
+            <br />
+            <button id="removeButton" type="submit">Remove Item</button>
+        </form>
+
+        <br />
+
+        <h4>Destroy your Creation</h4>
+        <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
+        <button id="clearButton" type="submit">Clear Creation</button>
+
+        <div id="graveyard" style="display: none">
+            <h2>Graveyard</h2>
+            <div id="creations"></div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

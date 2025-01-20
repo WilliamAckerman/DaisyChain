@@ -1,0 +1,9 @@
+Clearing an array: https://www.freecodecamp.org/news/how-to-clear-a-javascript-array-js-empty-array/
+
+MDN web docs:
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+
+W3Schools:
+https://www.w3schools.com/tags/att_input_type_checkbox.asp
+https://www.w3schools.com/jsref/jsref_tostring_array.asp
