@@ -1,5 +1,9 @@
 Clearing an array: https://www.freecodecamp.org/news/how-to-clear-a-javascript-array-js-empty-array/
 
+Color Palette: https://www.shecodes.io/palettes/1267
+
+CSS Border Help: https://stackoverflow.com/questions/5937148/css-border-not-working
+
 MDN web docs:
 https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio

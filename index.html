@@ -3,47 +3,83 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ferret - A Mindless Add/Remove App</title>
+        <title>DaisyChain - A Mindless Add/Remove App</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Ferret</h1>
-        <h3>A Mindless Add/Remove App</h3>
+        <header id="header" class="first-color">
+            <h1>DaisyChain</h1>
+            <h2>A Mindless Add/Remove App</h2>
+        </header>
+
+        <section id="instructions" class="second-color">
+            <div class="window">
+                <h3>Instructions</h3>
+                <p class="notice">Ever wanted to create a chain of mumbo-jumbo for no concrete reason? DaisyChain lets you do just that!</p>
+            </div>
+        </section>
+
         <div id="creature"></div>
 
-        <h4>Add a Segment</h4>
-        <form id="addForm">
-            <input id="segment" required />
-            <br />
+        <section id="addSegment" class="first-color">
+            <div class="window">
+                <h3>Add a Segment</h3>
+                <form id="addForm">
+                    <div class="box">
+                        <label for="segment">Segment to be added: </label>
+                        <input type="text" id="segment" required />
+                    </div>
+                    <div class="box">
+                        <input type="radio" id="addToStart" name="whereToAdd" checked> Add to Start
+                        <input type="radio" id="addToEnd" name="whereToAdd"> Add to End
+                    </div>
+                    <button id="addButton" type="submit" class="actionBtn">Add Item</button>
+                </form>
+            </div>
+        </section>
 
-            <input type="radio" id="addToStart" name="whereToAdd" checked> Add to Start
-            <br />
-            <input type="radio" id="addToEnd" name="whereToAdd"> Add to End
-            <br />
-            <button id="addButton" type="submit">Add Item</button>
-        </form>
+        <section id="removeSegment" class="second-color">
+            <h3>Remove a Segment</h3>
+            <form id="removeForm">
+                <div class="box">
+                    <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
+                    <label for="removeFromStart">Remove From Start</label>
+                    <input type="radio" id="removeFromEnd" name="whereToRemove">
+                    <label for="removeFromEnd">Remove From End</label>
+                </div>
+                <button id="removeButton" type="submit" class="actionBtn">Remove Item</button>
+            </form>
+        </section>
 
-        <h4>Remove a Segment</h4>
-        <form id="removeForm">
-            <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
-            <label for="removeFromStart">Remove From Start</label>
-            <br />
-            <input type="radio" id="removeFromEnd" name="whereToRemove">
-            <label for="removeFromEnd">Remove From End</label>
-            <br />
-            <button id="removeButton" type="submit">Remove Item</button>
-        </form>
+        <section id="reverseCreation" class="first-color">
+            <h3>Reverse your Creation</h3>
+            <button id="reverseButton" type="submit">Reverse Creation</button>
+        </section>
 
-        <br />
+        <section id="destroyCreation" class="fourth-color">
+            <h3>Destroy your Creation</h3>
+            <div class="box">
+                <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
+            </div>
+            <button id="clearButton" type="submit">Clear Creation</button>
+        </section>
 
-        <h4>Destroy your Creation</h4>
-        <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
-        <button id="clearButton" type="submit">Clear Creation</button>
+        <section id="graveyardSection" class="third-color">
+            <div id="graveyard" style="display: none">
+                <h2>Graveyard</h2>
+                <div id="creations"></div>
+            </div>
+        </section>
 
-        <div id="graveyard" style="display: none">
-            <h2>Graveyard</h2>
-            <div id="creations"></div>
-        </div>
+        <footer id="footer" style="background-color: rgb(44, 159, 253)">
+            <div style="border: solid black; border-width: 5px; background-color: rgb(46, 128, 172); width: 50%; margin: 0 auto">
+                <h2>Contact Info</h2>
+                <p class="notice">Creator: William Ackerman</p>
+                <p class="contact">Phone: <a href="tel:+15162528285">(+1) 516-252-8285</a></p>
+                <p class="contact">Email: <a href="mailto:williamjohnackerman@gmail.com">williamjohnackerman@gmail.com</a></p>
+            </div>
+            <p class="notice">2025.</p>
+        </footer>
     </body>
     <script src="script.js"></script>
 </html>

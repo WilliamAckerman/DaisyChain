@@ -1,0 +1,92 @@
+/* Color scheme from https://www.shecodes.io/palettes/1267 */
+/* (Slightly modified) */
+.first-color { 
+	background: #7dd87d; 
+}
+	
+.second-color { 
+	background: #4c9173; 
+}
+
+.third-color { 
+	background: #8964a2; 
+}
+
+.fourth-color { 
+	background: #6e4e68; 
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+body {
+    margin: 0 0 0 0;
+}
+
+header, footer, section {
+    padding: 5px;
+}
+
+.window {
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.creature {
+    text-align: center;
+    font-size: 24px;
+}
+
+.notice {
+    font-size: 18px;
+}
+
+button {
+    border-radius: 5px;
+    padding: 5px;
+    width: 40%;
+    max-width: 200px;
+    font-size: 20px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#addButton {
+    background-color: lime;
+}
+
+#removeButton {
+    background-color: red;
+}
+
+#reverseButton {
+    background-color: cyan;
+}
+
+#clearButton {
+    background-color: rgb(171, 135, 30);
+}
+
+#segment {
+    margin-bottom: 5px;
+}
+
+.actionBtn {
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+.contact {
+    font-size: 16px;
+}
