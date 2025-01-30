@@ -1,0 +1,19 @@
+<section id="addSegment" class="first-color">
+            <div class="window">
+                <h3 class="subsection">Add a Segment</h3>
+                
+            </div>
+        </section>
+
+        <section id="removeSegment" class="second-color">
+            <h3 class="subsection">Remove a Segment</h3>
+            
+        </section>
+
+        <!--<section id="destroyCreation" class="fourth-color">
+            <h3 class="subsection">Destroy your Creation</h3>
+            <div class="box">
+                <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
+            </div>
+            <button id="clearButton" type="submit">Clear Creation</button>
+        </section>-->

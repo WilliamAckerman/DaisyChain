@@ -12,56 +12,66 @@
             <h2>A Mindless Add/Remove App</h2>
         </header>
 
-        <section id="instructions" class="second-color">
-            <div class="window">
-                <h3>Instructions</h3>
-                <p class="notice">Ever wanted to create a chain of mumbo-jumbo for no concrete reason? DaisyChain lets you do just that!</p>
-            </div>
-        </section>
-
         <div id="creature"></div>
 
-        <section id="addSegment" class="first-color">
+        <section id="buttons" class="first-color">
+            <div class="window btn-group">
+                <button id="addButtonWindow" type="submit">Add Item</button>
+                <button id="removeButtonWindow" type="submit">Remove Item</button>
+                <button id="reverseButton" type="submit">Reverse Creation</button>
+                <button id="clearButtonWindow" type="submit">Destroy Creation</button>
+                <button id="instructionButton">Open Instructions</button>
+            </div>
+        </section>
+
+        <section id="instructions" class="second-color">
             <div class="window">
-                <h3>Add a Segment</h3>
-                <form id="addForm">
-                    <div class="box">
-                        <label for="segment">Segment to be added: </label>
-                        <input type="text" id="segment" required />
-                    </div>
-                    <div class="box">
-                        <input type="radio" id="addToStart" name="whereToAdd" checked> Add to Start
-                        <input type="radio" id="addToEnd" name="whereToAdd"> Add to End
-                    </div>
-                    <button id="addButton" type="submit" class="actionBtn">Add Item</button>
-                </form>
-            </div>
-        </section>
+                <div id="instructionModal" class="modal">
 
-        <section id="removeSegment" class="second-color">
-            <h3>Remove a Segment</h3>
-            <form id="removeForm">
-                <div class="box">
-                    <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
-                    <label for="removeFromStart">Remove From Start</label>
-                    <input type="radio" id="removeFromEnd" name="whereToRemove">
-                    <label for="removeFromEnd">Remove From End</label>
+                    <div class="modal-content">
+                        <div class="modal-border">
+                            <span class="close">&times;</span>
+                            <h2 id="modalTitle"></h2>
+                        </div>
+
+                        <div id="modal-body"></div>
+
+                        <form id="addForm">
+                            <div class="box">
+                                <label for="segment">Segment to be added: </label>
+                                <input type="text" id="segment" required />
+                            </div>
+                            <div class="box">
+                                <input type="radio" id="addToStart" name="whereToAdd" checked>
+                                <label for="addToStart">Add to Start</label>
+                                <input type="radio" id="addToEnd" name="whereToAdd">
+                                <label for="addToEnd">Add to End</label>
+                            </div>
+                            <button id="addButton" type="submit" class="actionBtn">Add a Segment to my Creation</button>
+                        </form>
+
+                        <form id="removeForm">
+                            <div class="box">
+                                <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
+                                <label for="removeFromStart">Remove From Start</label>
+                                <input type="radio" id="removeFromEnd" name="whereToRemove">
+                                <label for="removeFromEnd">Remove From End</label>
+                            </div>
+                            <button id="removeButton" type="submit" class="actionBtn">Remove a Segment from my Creation</button>
+                        </form>
+
+                        <div id="destroyCreation">
+                            <div class="box">
+                                <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
+                            </div>
+                            <button id="clearButton" type="submit">Destroy my Creation</button>
+                        </div>
+
+                        <div class="modal-border"></div>
+                    </div>
+
                 </div>
-                <button id="removeButton" type="submit" class="actionBtn">Remove Item</button>
-            </form>
-        </section>
-
-        <section id="reverseCreation" class="first-color">
-            <h3>Reverse your Creation</h3>
-            <button id="reverseButton" type="submit">Reverse Creation</button>
-        </section>
-
-        <section id="destroyCreation" class="fourth-color">
-            <h3>Destroy your Creation</h3>
-            <div class="box">
-                <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
             </div>
-            <button id="clearButton" type="submit">Clear Creation</button>
         </section>
 
         <section id="graveyardSection" class="third-color">
