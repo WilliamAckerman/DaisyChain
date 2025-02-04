@@ -47,3 +47,7 @@ The graveyard saves the five most recently-deleted creations that were saved. If
 - HTML
 - CSS
 - JavaScript
+
+# License
+
+This project uses the MIT License. For more information, please refer to the LICENSE["LICENSE"] file for this project.
