@@ -38,9 +38,14 @@ header, footer, section {
     justify-content: center;
 }
 
-.creature {
+#creature {
     text-align: center;
     font-size: 24px;
+    word-wrap: break-word; /* Help from https://www.w3schools.com/cssref/css3_pr_word-wrap.php */
+}
+
+.creature {
+    word-wrap: break-word;
 }
 
 .notice {
@@ -160,11 +165,11 @@ button {
 }
 
 #clearButton, #clearButtonWindow {
-    background-color: rgb(171, 135, 30);
+    background-color: rgb(194, 151, 22);
 }
 
 #clearButton:hover, #clearButtonWindow:hover {
-    background-color: rgb(113, 90, 19);
+    background-color: rgb(156, 120, 14);
 }
 
 #instructionButton:hover {
@@ -173,4 +178,29 @@ button {
 
 #addForm, #removeForm {
     display: none;
+}
+
+.actionBtn {
+    padding: 10px 24px;
+    border-radius: 5px;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+/* Media queries */
+
+@media (width < 600px) {
+    .btn-group button {
+        width: 97%;
+        word-wrap: break-word;
+    }
+    .btn-group button:not(:last-child) {
+        border-right: 1px solid black;
+    }
+}
+
+@media (width > 599px) and (width < 768px) {
+    .btn-group button {
+        height: 50px;
+    }
 }

@@ -43,28 +43,38 @@ instructionButton.onclick = function () {
 
     <h3>To add a segment:</h3>
     <p class="notice">
-        1. Type something into the input field on the right of the "Segment to be added:" text.<br /><br />
-        2a. To add a segment to the start of your creature, click the radio button on the left of the "Add to Start" text (Note: This button is checked by default.).<br /><br />
-        2b. To add a segment to the end of your creature, click the radio button on the left of the "Add to End" text.<br /><br />
-        3. Click the "Add a Segment to my Creation" button to add a segment to your creature.
+        1. Click the "Add Segment" button.<br /><br />
+        2. Type something into the input field on the right of the "Segment to be added:" text.<br /><br />
+        3a. To add a segment to the start of your creation, click the radio button on the left of the "Add to Start" text (Note: This button is checked by default.).<br /><br />
+        3b. To add a segment to the end of your creation, click the radio button on the left of the "Add to End" text.<br /><br />
+        4. Click the "Add a Segment to my Creation" button to add a segment to your creation.<br /><br />
+        Note: The maximum number of segments a creation can have is 25.
     </p>
 
     <h3>To remove a segment:</h3>
     <p class="notice">
-        1a. To remove a segment from the start of your creature, click the radio button on the left of the "Remove From Start" text (Note: This button is checked by default.).<br /><br />
-        1b. To remove a segment from the end of your creature, click the radio button on the left of the "Remove From End" text.<br /> <br />
-        2. Click the "Remove a Segment from my Creation" button to remove a segment from your creation.
+        1. Click the "Remove Segment" button.<br /><br />
+        2a. To remove a segment from the start of your creation, click the radio button on the left of the "Remove From Start" text (Note: This button is checked by default.).<br /><br />
+        2b. To remove a segment from the end of your creation, click the radio button on the left of the "Remove From End" text.<br /> <br />
+        3. Click the "Remove a Segment from my Creation" button to remove a segment from your creation.
     </p>
 
     <h3>To reverse a creation:</h3>
     <p class="notice">
-        To reverse a creation, simply click the cyan "Reverse Creation" button.
+        To reverse a creation, simply click the "Reverse Creation" button.
     </p>
 
     <h3>To destroy a creation:</h3>
     <p class="notice">
-        1. If you would like to save your creation to the graveway, ensure the checkbox to the right of the text "Save my creation before clearing" is checked.<br /><br />
-        2. Click the "Destroy my Creation" button to destroy your creation.
+        1. Click the "Destroy Creation" button.
+        2. If you would like to save your creation to the graveway, ensure the checkbox to the right of the text "Save my creation before clearing" is checked.<br /><br />
+        3. Click the "Destroy my Creation" button to destroy your creation.
+    </p>
+
+    <h3>About the Graveyard:</h3>
+    <p class="notice">
+        The graveyard saves the five most recently-deleted creations that were saved. If there are currently five creations to the graveyard 
+        and another creation is saved to the graveyard, the oldest creation in the graveyard will be erased.
     </p>
     `;
     addForm.style.display = 'none';
@@ -112,7 +122,9 @@ clearButtonWindow.addEventListener('click', (e) => {
 })
 
 addButton.addEventListener('click', (e) => {
-    if(segment.value.trim()) { // Ensures an empty value is not being entered
+    if (ferret.length >= 25) {
+        alert("Maximum creation length of 25 reached.");
+    } else if(segment.value.trim()) { // Ensures an empty value is not being entered
         if(addToEnd.checked) { // Executes if the "Add to End" radio button is checked when the "Add Item" button is clicked
             ferret.push(segment.value); // Adds the element to the end of the ferret array
         } else { // Executes if the "Add to Start" radio button is checked when the "Add Item" button is clicked
@@ -141,7 +153,7 @@ removeButton.addEventListener('click', (e) => {
         }
     }
     else {
-        alert("No items to be removed - add some items first!");
+        alert("No items to be removed - add some segments first!");
     }
     e.preventDefault();
 });
@@ -151,14 +163,14 @@ reverseButton.addEventListener('click', (e) => {
         ferret = ferret.reverse();
         creature.innerHTML = `<p class="creature">${ferret.join("<=>")}</p>`;
     } else {
-        alert("No creature to be reversed - add some items first!");
+        alert("No creature to be reversed - add some segments first!");
     }
     e.preventDefault();
 });
 
 clearButton.addEventListener('click', (e) => {
-    if(save.checked && ferret.join(" => ").trim() && ferret.length > 0) {
-        deceased.unshift(ferret.join(" => ")); // Adds the newest creation to the start of the deceased array
+    if(save.checked && ferret.join("<=>").trim() && ferret.length > 0) {
+        deceased.unshift(ferret.join("<=>")); // Adds the newest creation to the start of the deceased array
         deceased.pop(); // Gets rid of the oldest creation
         graveyard.style.display = 'block'; // This causes the "graveyard" section to now be displayed
         creations.innerHTML = `<p class="notice">The <strong>five most recent</strong> saved creations are recorded here.</p>`;
@@ -166,8 +178,10 @@ clearButton.addEventListener('click', (e) => {
             creations.innerHTML += `<p class="creature">${deceased[i]}</p><br />`;
         }
         alert("Creation saved to graveyard!");
-    } else if (ferret.length < 1) {
-        alert("No creature to be destroyed - add some items first!");
+    } 
+    
+    if (ferret.length < 1) {
+        alert("No creature to be destroyed - add some segments first!");
     } else {
         creature.innerText = ""; // Resets the "creature"
         ferret.length = 0; // Help from FCC

@@ -16,8 +16,8 @@
 
         <section id="buttons" class="first-color">
             <div class="window btn-group">
-                <button id="addButtonWindow" type="submit">Add Item</button>
-                <button id="removeButtonWindow" type="submit">Remove Item</button>
+                <button id="addButtonWindow" type="submit">Add Segment</button>
+                <button id="removeButtonWindow" type="submit">Remove Segment</button>
                 <button id="reverseButton" type="submit">Reverse Creation</button>
                 <button id="clearButtonWindow" type="submit">Destroy Creation</button>
                 <button id="instructionButton">Open Instructions</button>
@@ -29,7 +29,7 @@
                 <div id="instructionModal" class="modal">
 
                     <div class="modal-content">
-                        <div class="modal-border">
+                        <div class="modal-border" style="margin-bottom: 10px">
                             <span class="close">&times;</span>
                             <h2 id="modalTitle"></h2>
                         </div>
@@ -38,7 +38,7 @@
 
                         <form id="addForm">
                             <div class="box">
-                                <label for="segment">Segment to be added: </label>
+                                <label for="segment" style="margin-right: 10px">Segment to be added: </label>
                                 <input type="text" id="segment" required />
                             </div>
                             <div class="box">
@@ -64,7 +64,7 @@
                             <div class="box">
                                 <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
                             </div>
-                            <button id="clearButton" type="submit">Destroy my Creation</button>
+                            <button id="clearButton" type="submit" class="actionBtn">Destroy my Creation</button>
                         </div>
 
                         <div class="modal-border"></div>
@@ -81,8 +81,8 @@
             </div>
         </section>
 
-        <footer id="footer" style="background-color: rgb(44, 159, 253)">
-            <div style="border: solid black; border-width: 5px; background-color: rgb(46, 128, 172); width: 50%; margin: 0 auto">
+        <footer id="footer" style="background-color: rgb(212, 212, 212)">
+            <div style="border: solid black; border-width: 5px; background-color: rgb(208, 208, 208); margin: 0 auto">
                 <h2>Contact Info</h2>
                 <p class="notice">Creator: William Ackerman</p>
                 <p class="contact">Phone: <a href="tel:+15162528285">(+1) 516-252-8285</a></p>
