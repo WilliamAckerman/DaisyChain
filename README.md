@@ -29,7 +29,7 @@ To remove a segment from the end of your creation, click the radio button on the
 
 ## To reverse a creation:
 
-To reverse a creation, simply click the cyan "Reverse Creation" button.
+To reverse a creation, simply click the cyan "Reverse Creation" button. To reverse a creation, it must have at least two segments.
 
 ## To destroy a creation:
 

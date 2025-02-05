@@ -11,7 +11,7 @@ const save = document.getElementById('save'); // Checkbox with the id of "save"
 const segment = document.getElementById('segment');
 const addButton = document.getElementById('addButton'); // Button used to add a segment to the ferret array
 const removeButton = document.getElementById('removeButton'); // Button used to remove a segment from the ferret array
-const reverseButton = document.getElementById('reverseButton');
+const reverseButton = document.getElementById('reverseButton'); // Button used to reverse the order of segments in a creation
 const clearButton = document.getElementById('clearButton'); // Button used to clear the ferret array
 
 const graveyard = document.getElementById('graveyard'); // Used to store the five most recently saved deleted creations
@@ -42,34 +42,40 @@ instructionButton.onclick = function () {
     <p class="notice">Ever wanted to create a chain of mumbo-jumbo for no concrete reason? DaisyChain lets you do just that!</p>
 
     <h3>To add a segment:</h3>
+    <ol>
+        <li>Click the "Add Segment" button.</li><br />
+        <li>Type something into the input field on the right of the "Segment to be added:" text.</li><br />
+        <li>
+            To add a segment to the start of your creation, click the radio button on the left of the "Add to Start" text (Note: This button is checked by default.).<br /><br />
+            To add a segment to the end of your creation, click the radio button on the left of the "Add to End" text.
+        </li><br />
+        <li>Click the "Add a Segment to my Creation" button to add a segment to your creation.</li>
+    </ol>
     <p class="notice">
-        1. Click the "Add Segment" button.<br /><br />
-        2. Type something into the input field on the right of the "Segment to be added:" text.<br /><br />
-        3a. To add a segment to the start of your creation, click the radio button on the left of the "Add to Start" text (Note: This button is checked by default.).<br /><br />
-        3b. To add a segment to the end of your creation, click the radio button on the left of the "Add to End" text.<br /><br />
-        4. Click the "Add a Segment to my Creation" button to add a segment to your creation.<br /><br />
         Note: The maximum number of segments a creation can have is 25.
     </p>
 
     <h3>To remove a segment:</h3>
-    <p class="notice">
-        1. Click the "Remove Segment" button.<br /><br />
-        2a. To remove a segment from the start of your creation, click the radio button on the left of the "Remove From Start" text (Note: This button is checked by default.).<br /><br />
-        2b. To remove a segment from the end of your creation, click the radio button on the left of the "Remove From End" text.<br /> <br />
-        3. Click the "Remove a Segment from my Creation" button to remove a segment from your creation.
-    </p>
+    <ol>
+        <li>Click the "Remove Segment" button.</li><br />
+        <li>
+            To remove a segment from the start of your creation, click the radio button on the left of the "Remove From Start" text (Note: This button is checked by default.).<br /><br />
+            To remove a segment from the end of your creation, click the radio button on the left of the "Remove From End" text.
+        </li><br />
+        <li>Click the "Remove a Segment from my Creation" button to remove a segment from your creation.</li>
+    </ol>
 
     <h3>To reverse a creation:</h3>
     <p class="notice">
-        To reverse a creation, simply click the "Reverse Creation" button.
+        To reverse a creation, simply click the "Reverse Creation" button. To reverse a creation, it must have at least two segments.
     </p>
 
     <h3>To destroy a creation:</h3>
-    <p class="notice">
-        1. Click the "Destroy Creation" button.
-        2. If you would like to save your creation to the graveway, ensure the checkbox to the right of the text "Save my creation before clearing" is checked.<br /><br />
-        3. Click the "Destroy my Creation" button to destroy your creation.
-    </p>
+    <ol>
+        <li>Click the "Destroy Creation" button.</li><br />
+        <li>If you would like to save your creation to the graveway, ensure the checkbox to the right of the text "Save my creation before clearing" is checked.</li><br />
+        <li>Click the "Destroy my Creation" button to destroy your creation.</li>
+    </ol>
 
     <h3>About the Graveyard:</h3>
     <p class="notice">
@@ -93,6 +99,8 @@ window.onclick = function(event) {
 }
 
 /* End of modal code */
+
+/* Changes what the modal displays depending on which button is clicked */
 
 addButtonWindow.addEventListener('click', (e) => {
     modal.style.display = "block";
@@ -122,7 +130,7 @@ clearButtonWindow.addEventListener('click', (e) => {
 })
 
 addButton.addEventListener('click', (e) => {
-    if (ferret.length >= 25) {
+    if (ferret.length >= 25) { // Checks if the creation has 25 or more segments
         alert("Maximum creation length of 25 reached.");
     } else if(segment.value.trim()) { // Ensures an empty value is not being entered
         if(addToEnd.checked) { // Executes if the "Add to End" radio button is checked when the "Add Item" button is clicked
@@ -130,11 +138,11 @@ addButton.addEventListener('click', (e) => {
         } else { // Executes if the "Add to Start" radio button is checked when the "Add Item" button is clicked
             ferret.unshift(segment.value); // Adds the element to the beginning of the ferret array
         }
+        creature.innerHTML = `<p class="creature">${ferret.join("<=>")}</p>`; // Updates the creature to hold the new ferret array contents
+        segment.value = "";
     } else {
         alert("Please type in a segment to be added.");
     }
-    creature.innerHTML = `<p class="creature">${ferret.join("<=>")}</p>`; // Updates the creature to hold the new ferret array contents
-    segment.value = "";
     e.preventDefault(); // Used to prevent page refreshing
 });
 
@@ -151,19 +159,20 @@ removeButton.addEventListener('click', (e) => {
         } else {
             creature.innerHTML = "";
         }
-    }
-    else {
+    } else {
         alert("No items to be removed - add some segments first!");
     }
     e.preventDefault();
 });
 
 reverseButton.addEventListener('click', (e) => {
-    if (ferret.length > 0) {
+    if (ferret.length > 1) { // Will only reverse if the creation has at least two segments
         ferret = ferret.reverse();
         creature.innerHTML = `<p class="creature">${ferret.join("<=>")}</p>`;
+    } else if (ferret.length == 1) { // Reversing is not necessary if there is only one segment
+        alert("Only one segment - no reversing necessary.");
     } else {
-        alert("No creature to be reversed - add some segments first!");
+        alert("No creation to be reversed - add some segments first!");
     }
     e.preventDefault();
 });
@@ -178,10 +187,10 @@ clearButton.addEventListener('click', (e) => {
             creations.innerHTML += `<p class="creature">${deceased[i]}</p><br />`;
         }
         alert("Creation saved to graveyard!");
-    } 
-    
-    if (ferret.length < 1) {
-        alert("No creature to be destroyed - add some segments first!");
+        creature.innerText = ""; // Resets the "creature"
+        ferret.length = 0; // Help from FCC
+    } else if (ferret.length < 1) {
+        alert("No creation to be destroyed - add some segments first!");
     } else {
         creature.innerText = ""; // Resets the "creature"
         ferret.length = 0; // Help from FCC
