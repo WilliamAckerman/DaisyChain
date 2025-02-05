@@ -11,79 +11,81 @@
             <h1>DaisyChain</h1>
             <h2>A Mindless Add/Remove App</h2>
         </header>
+        <main id="main">
 
-        <div id="creature"></div>
+            <div id="creature"></div>
 
-        <section id="buttons" class="first-color">
-            <nav class="window btn-group">
-                <button id="addButtonWindow" type="submit">Add Segment</button>
-                <button id="removeButtonWindow" type="submit">Remove Segment</button>
-                <button id="reverseButton" type="submit">Reverse Creation</button>
-                <button id="clearButtonWindow" type="submit">Destroy Creation</button>
-                <button id="instructionButton">Open Instructions</button>
-            </nav>
-        </section>
+            <section id="buttons" class="first-color">
+                <nav class="window btn-group">
+                    <button id="addButtonWindow" type="submit">Add Segment</button>
+                    <button id="removeButtonWindow" type="submit">Remove Segment</button>
+                    <button id="reverseButton" type="submit">Reverse Creation</button>
+                    <button id="clearButtonWindow" type="submit">Destroy Creation</button>
+                    <button id="instructionButton">Open Instructions</button>
+                </nav>
+            </section>
 
-        <section id="instructions" class="second-color">
-            <div class="window">
-                <div id="instructionModal" class="modal">
+            <section id="instructions" class="second-color">
+                <div class="window">
+                    <div id="instructionModal" class="modal">
 
-                    <div class="modal-content">
-                        <div class="modal-border" style="margin-bottom: 10px">
-                            <span class="close">&times;</span>
-                            <h2 id="modalTitle"></h2>
+                        <div class="modal-content">
+                            <div class="modal-border" style="margin-bottom: 10px">
+                                <span class="close">&times;</span>
+                                <h2 id="modalTitle"></h2>
+                            </div>
+
+                            <div id="modal-body"></div>
+
+                            <form id="addForm">
+                                <div class="box">
+                                    <label for="segment" style="margin-right: 10px">Segment to be added: </label>
+                                    <input type="text" id="segment" required />
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="addToStart" name="whereToAdd" checked>
+                                    <label for="addToStart">Add to Start</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="addToEnd" name="whereToAdd">
+                                    <label for="addToEnd">Add to End</label>
+                                </div>
+                                <button id="addButton" type="submit" class="actionBtn">Add a Segment to my Creation</button>
+                            </form>
+
+                            <form id="removeForm">
+                                <div class="box">
+                                    <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
+                                    <label for="removeFromStart">Remove From Start</label>
+                                </div>
+                                <div class="box">
+                                    <input type="radio" id="removeFromEnd" name="whereToRemove">
+                                    <label for="removeFromEnd">Remove From End</label>
+                                </div>
+                                <button id="removeButton" type="submit" class="actionBtn">Remove a Segment from my Creation</button>
+                            </form>
+
+                            <div id="destroyCreation">
+                                <div class="box">
+                                    <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
+                                </div>
+                                <button id="clearButton" type="submit" class="actionBtn">Destroy my Creation</button>
+                            </div>
+
+                            <div class="modal-border"></div>
                         </div>
 
-                        <div id="modal-body"></div>
-
-                        <form id="addForm">
-                            <div class="box">
-                                <label for="segment" style="margin-right: 10px">Segment to be added: </label>
-                                <input type="text" id="segment" required />
-                            </div>
-                            <div class="box">
-                                <input type="radio" id="addToStart" name="whereToAdd" checked>
-                                <label for="addToStart">Add to Start</label>
-                            </div>
-                            <div class="box">
-                                <input type="radio" id="addToEnd" name="whereToAdd">
-                                <label for="addToEnd">Add to End</label>
-                            </div>
-                            <button id="addButton" type="submit" class="actionBtn">Add a Segment to my Creation</button>
-                        </form>
-
-                        <form id="removeForm">
-                            <div class="box">
-                                <input type="radio" id="removeFromStart" name="whereToRemove" checked> 
-                                <label for="removeFromStart">Remove From Start</label>
-                            </div>
-                            <div class="box">
-                                <input type="radio" id="removeFromEnd" name="whereToRemove">
-                                <label for="removeFromEnd">Remove From End</label>
-                            </div>
-                            <button id="removeButton" type="submit" class="actionBtn">Remove a Segment from my Creation</button>
-                        </form>
-
-                        <div id="destroyCreation">
-                            <div class="box">
-                                <input type="checkbox" id="save" name="save" value="save" /> Save my creation before clearing
-                            </div>
-                            <button id="clearButton" type="submit" class="actionBtn">Destroy my Creation</button>
-                        </div>
-
-                        <div class="modal-border"></div>
                     </div>
-
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="graveyardSection" class="third-color">
-            <div id="graveyard" style="display: none">
-                <h2>Graveyard</h2>
-                <div id="creations"></div>
-            </div>
-        </section>
+            <section id="graveyardSection" class="third-color">
+                <div id="graveyard" style="display: none">
+                    <h2>Graveyard</h2>
+                    <div id="creations"></div>
+                </div>
+            </section>
+        </main>
 
         <footer id="footer" style="background-color: rgb(212, 212, 212)">
             <div style="border: solid black; border-width: 5px; background-color: rgb(208, 208, 208); margin: 0 auto">
